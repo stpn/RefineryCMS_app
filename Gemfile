@@ -8,16 +8,12 @@ gem 'rails', '3.2.2'
 gem 'sqlite3'
 gem 'devise'
 gem 'refinerycms-core'#,       :git => 'git://github.com/resolve/refinerycms.git'
-  gem 'refinerycms-dashboard'#,  :git => 'git://github.com/resolve/refinerycms.git'
-  gem 'refinerycms-images'#,     :git => 'git://github.com/resolve/refinerycms.git'
-  gem 'refinerycms-pages'#,      :git => 'git://github.com/resolve/refinerycms.git'
-  gem 'refinerycms-resources'#,  :git => 'git://github.com/resolve/refinerycms.git'
-  gem 'refinerycms-settings'#,  :git => 'git://github.com/parndt/refinerycms-settings.git'
-#    gem 'refinerycms-generators'#, :git
+gem 'refinerycms-dashboard'#,  :git => 'git://github.com/resolve/refinerycms.git'
+gem 'refinerycms-images'#,     :git => 'git://github.com/resolve/refinerycms.git'
+gem 'refinerycms-pages'#,      :git => 'git://github.com/resolve/refinerycms.git'
+gem 'refinerycms-resources'#,  :git => 'git://github.com/resolve/refinerycms.git'
+gem 'refinerycms-settings'#,  :git => 'git://github.com/parndt/refinerycms-settings.git'
 
-  group :development, :test do
-#    gem 'refinerycms-testing',  :git => 'git://github.com/resolve/refinerycms.git'
-  end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
