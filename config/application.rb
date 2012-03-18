@@ -55,19 +55,21 @@ module DevRef
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-     config.autoload_paths += Dir["#{config.root}/lib/**/"] # to load files from lib directory, including subfolders
-        config.before_initialize do
-          require 'refinery_patch'
-          require 'restrict_refinery_to_refinery_users'
-        end
+    config.autoload_paths += Dir["#{config.root}/lib/**/"] # to load files from lib directory, including subfolders
 
-        config.to_prepare do    
-          [::Refinery::ApplicationController, ApplicationHelper].each do |c|
-            c.send :include, ::RefineryPatch
-          end
-
-          ::Refinery::AdminController.send :include, ::RestrictRefineryToRefineryUsers
-          ::Refinery::AdminController.send :before_filter, :restrict_refinery_to_refinery_users
-        end
-      end
+    config.before_initialize do
+      require 'refinery_patch'
+      require 'restrict_refinery_to_refinery_users'
     end
+
+    include Refinery::Engine
+    after_inclusion do
+      [ApplicationController, ApplicationHelper].each do |c|
+        c.send :include, ::RefineryPatch
+      end
+
+      ::Refinery::AdminController.send :include, ::RestrictRefineryToRefineryUsers
+      ::Refinery::AdminController.send :before_filter, :restrict_refinery_to_refinery_users
+    end
+  end
+end
